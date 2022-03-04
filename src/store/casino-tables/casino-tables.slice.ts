@@ -8,9 +8,9 @@ interface ICasinoGame {
 }
 
 const initialState: Array<ICasinoGame> = [
-  { id: 1, name: 'BlackJack' },
-  { id: 2, name: 'Poker' },
-  { id: 3, name: 'Roulette' },
+  { id: 1, name: 'Table 1' },
+  { id: 2, name: 'Table 2' },
+  { id: 3, name: 'Table 3' },
 ];
 
 export const casinoSlice = createSlice({

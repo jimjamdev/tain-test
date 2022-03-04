@@ -1,9 +1,12 @@
 import moment from 'moment';
 
+import chunkArray from '~lib/func/chunk-array';
+
 export const splitTimeInterval = (
   startTime?: Date,
   interval = 30,
   period = 'minutes',
+  chunk = 24,
 ) => {
   const periodsInADay = moment
     .duration(1, 'day')
@@ -37,7 +40,7 @@ export const splitTimeInterval = (
     );
 
   const timeLabels = [];
-  const startTimeMoment = moment(startTime, 'hh:mm');
+  const startTimeMoment = moment(startTime, 'HH:mm');
   for (let i = 0; i <= periodsInADay; i += interval) {
     // @ts-ignore
     startTimeMoment.add(i === 0 ? 0 : interval, period);
@@ -46,5 +49,5 @@ export const splitTimeInterval = (
 
   timeLabels.pop();
 
-  return timeLabels;
+  return chunkArray(timeLabels, chunk);
 };
