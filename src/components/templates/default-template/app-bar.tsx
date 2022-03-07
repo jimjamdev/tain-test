@@ -14,7 +14,11 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/client';
 import { signOut } from 'next-auth/client';
 import { MouseEvent, useState } from 'react';
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [
+  { name: 'home', url: '/' },
+  { name: 'Add Presenter', url: '/admin/presenters' },
+  { name: 'Add Table', url: '/admin/game-tables' },
+];
 
 export const DefaultAppBar = () => {
   const [session] = useSession();
@@ -79,9 +83,11 @@ export const DefaultAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link href={page.url} passHref>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -95,13 +101,15 @@ export const DefaultAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link href={page.url} passHref>
+                <Button
+                  key={page.name}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 

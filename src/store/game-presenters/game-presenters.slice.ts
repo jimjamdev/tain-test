@@ -1,17 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { RootState } from '~store/store';
-
-interface IGamePresenter {
-  id: number;
-  name: string;
-}
+import { IGamePresenter } from '~types/casino';
 
 const initialState: Array<IGamePresenter> = [
-  { id: 1, name: 'Ian' },
-  { id: 2, name: 'Bob' },
-  { id: 3, name: 'Joe' },
-  { id: 4, name: 'Harry' },
+  { name: 'Ian' },
+  { name: 'Bob' },
+  { name: 'Joe' },
+  { name: 'Mary' },
 ];
 
 export const presenterSlice = createSlice({

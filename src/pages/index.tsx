@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
 import { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -13,11 +13,10 @@ const Home: NextPage = () => {
         <meta name="description" content="SEO Meta stuff" />
       </Head>
       <DefaultTemplate>
-        <section className="max-w-7xl mx-auto px-4 py-4">
-          <h1>Test</h1>
-          <GameTablesContainer />
-          <Button>Click</Button>
-        </section>
+        <Typography variant="h3" component="h1" gutterBottom>
+          Test
+        </Typography>
+        <GameTablesContainer />
       </DefaultTemplate>
     </>
   );

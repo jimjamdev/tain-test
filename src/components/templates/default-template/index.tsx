@@ -1,3 +1,4 @@
+
 import Container from '@mui/material/Container';
 import { FunctionComponent } from 'react';
 
@@ -7,7 +8,9 @@ export const DefaultTemplate: FunctionComponent = ({ children }) => {
   return (
     <>
       <DefaultAppBar />
-      <Container maxWidth="xl">{children}</Container>
+      <Container maxWidth="xl">
+        <section className="max-w-7xl mx-auto px-4 py-4">{children}</section>
+      </Container>
     </>
   );
 };
