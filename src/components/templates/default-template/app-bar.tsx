@@ -83,8 +83,8 @@ export const DefaultAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <Link href={page.url} passHref>
-                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <Link key={page.name} href={page.url} passHref>
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page.name}</Typography>
                   </MenuItem>
                 </Link>
@@ -101,7 +101,7 @@ export const DefaultAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link href={page.url} passHref>
+              <Link key={page.name} href={page.url} passHref>
                 <Button
                   key={page.name}
                   onClick={handleCloseNavMenu}

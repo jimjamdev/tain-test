@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/client';
+import { useEffect } from 'react';
 
 import { AdminList } from '~components/admin-list';
 import { CreateGameTableForm } from '~components/forms/create-game-table-form';
@@ -20,9 +21,12 @@ const AdminGameTablesPage: NextPage = () => {
   const dispatch = useAppDispatch();
 
   /** There are better ways. But this for speed */
-  if (!session) {
-    router.push('/auth');
-  }
+
+  useEffect(() => {
+    if (!session) {
+      router.push('/auth');
+    }
+  });
 
   return (
     <DefaultTemplate>

@@ -1,6 +1,6 @@
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import type { AppProps } from 'next/app';
 import { Provider as NextAuthProvider } from 'next-auth/client';
 import { Provider as ReduxProvider } from 'react-redux';
